@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icon/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icon/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/icon/favicon/site.webmanifest" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamBit Tech</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="/js/universal.js" defer></script>
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_ZW5kbGVzcy1zaHJldy0yNy5jbGVyay5hY2NvdW50cy5kZXYk"
+    src="https://endless-shrew-27.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+    type="text/javascript"
+  ></script>
+</head>
+<body>
+  
+  <div id="splash-screen">
+    <div id="splash-content">
+      <div id="splash-text-container">
+        <span id="dreambit">DreamBit</span>
+        <span id="tech">Tech</span>
+      </div>
+      <div>
+        <span id="we-Build-Dreams">We Build Dreams, </span>
+        <span id="for-Real">For Real ❤️</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <!-- First Section: Logo, Company Name, Moto -->
+    <div class="header-left">
+      <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+      <div class="header-text">
+        <h1>DreamBit Tech</h1>
+        <p>We Build Dreams, for Real.</p>
+      </div>
+    </div>    
+    <!-- Second Section: Theme Toggle and Navigation -->
+    <div class="header-right">
+      <button id="theme-toggle">🌙</button>
+      <nav>
+        <ul>
+          <li><a href="/index.html" class="active">Home</a></li>
+          <li><a href="/ever/products.html">Products</a></li>
+          <li><a href="/ever/news.html">News</a></li>
+          <li><div id="user-auth">
+          </div></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" data-scroll-reveal>
+      <h1 class="hero-title">Transform Your Dreams<br>Into Digital Reality</h1>
+      <p class="hero-subtitle">Custom-built PCs that bring your creative vision to life</p>
+      <div class="hero-cta">
+        <button onclick="window.location.href='/ever/products.html'" class="hero-button primary">
+            <span class="button-icon">🚀</span>
+            <span class="button-text">Explore Our Builds</span>
+        </button>
+        <button onclick="window.location.href='/ever/contact.html'" class="hero-button primary">
+            <span class="button-icon">✉️</span>
+            <span class="button-text">Contact Us</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="background-animation">
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+
+    <section id="why-us" class="features">
+      <h2 data-scroll-reveal>Why Dream With Us?</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-scroll-reveal>
+          <span class="feature-icon">🎨</span>
+          <h3>Built for Creators</h3>
+          <p>Optimized systems for video editing, 3D rendering, and creative workflows</p>
+        </div>
+        <div class="feature-card" data-scroll-reveal>
+          <span class="feature-icon">🎮</span>
+          <h3>Gaming Paradise</h3>
+          <p>High-performance rigs that deliver smooth, immersive gaming experiences</p>
+        </div>
+        <div class="feature-card" data-scroll-reveal>
+          <span class="feature-icon">💎</span>
+          <h3>Quality First</h3>
+          <p>Premium components and meticulous assembly for reliability</p>
+        </div>
+        <div class="feature-card" data-scroll-reveal>
+          <span class="feature-icon">🤝</span>
+          <h3>Personal Touch</h3>
+          <p>Custom builds tailored to your specific needs and preferences</p>
+        </div>
+      </div>
+    </section>
+    <section class="product-categories">
+      <h2 data-scroll-reveal>Our Products</h2>
+      <p class="section-subtitle" data-scroll-reveal>Discover your perfect build</p>
+      <div class="category-grid">
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/cabinets/ftechfren.jpg" alt="Basic" class="category-icon">
+          <h3>Basic Builds</h3>
+          <p>Ultra high-value configurations built to perform basic tasks</p>
+          <a href="/spec/OPT/basic.html" class="category-button">
+            <span>Explore Basic Builds</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/cabinets/antespelite.jpg" alt="Budget" class="category-icon">
+          <h3>Budget Builds</h3>
+          <p>High-value configurations that don't break the bank</p>
+          <a href="/spec/OPT/budget.html" class="category-button">
+            <span>Explore Budget Builds</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/cabinets/msimagpano.jpg" alt="Gaming" class="category-icon">
+          <h3>Gaming Builds</h3>
+          <p>Power-packed PCs for the ultimate gaming experience</p>
+          <a href="/spec/OPT/gaming.html" class="category-button">
+            <span>View Gaming PCs</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/cabinets/msimag120a.jpg" alt="Creator" class="category-icon">
+          <h3>Creator Builds</h3>
+          <p>Optimized for content creation and professional work</p>
+          <a href="/spec/OPT/creator.html" class="category-button">
+            <span>See Creator Stations</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/cabinets/cstm.jpg" alt="Custom" class="category-icon">
+          <h3>Custom Builds</h3>
+          <p>Tailored solutions for your specific needs</p>
+          <a href="/spec/OPT/cstm.html" class="category-button">
+            <span>Build Your Dream PC</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+
+        <div class="category-card" data-scroll-reveal>
+          <img src="/part/mb/aoruseliteax.jpg" alt="parts" class="category-icon">
+          <h3>PC Parts</h3>
+          <p>Buy parts, at the best princes we could find for you.</p>
+          <a href="/spec/OPT/parts.html" class="category-button">
+            <span>View PC Parts</span>
+            <img src="/icons/arrow.svg" alt="Arrow" class="arrow">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="build-process">
+      <h2 data-scroll-reveal>How We Build Your Dream PC</h2>
+      <p class="section-subtitle" data-scroll-reveal>Our proven process for perfect builds</p>
+      <div class="process-grid">
+        <div class="process-step" data-scroll-reveal>
+            <span class="step-number">01</span>
+            <h3>Consultation</h3>
+            <p>We discuss your needs and budget to plan the perfect build</p>
+        </div>
+        <div class="process-step" data-scroll-reveal>
+            <span class="step-number">02</span>
+            <h3>Component Selection</h3>
+            <p>Choose from premium, tested parts that match your requirements</p>
+        </div>
+        <div class="process-step" data-scroll-reveal>
+            <span class="step-number">03</span>
+            <h3>Assembly</h3>
+            <p>Expert builders carefully craft your system</p>
+        </div>
+        <div class="process-step" data-scroll-reveal>
+            <span class="step-number">04</span>
+            <h3>Quality Control</h3>
+            <p>Rigorous testing ensures everything is perfect</p>
+        </div>
+      </div>
+    </section>
+    <div class="floating-brand">
+      <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+      <h1>DreamBit Tech</h1>
+    </div>
+  <footer>
+    <p>&copy; 2025 DreamBit Tech. All rights reserved.</p>
+  </footer>
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const splashScreen = document.getElementById('splash-screen');
+        const splashContent = document.getElementById('splash-content');
+
+        // Check if the splash screen has already been shown in this session
+        const hasSplashBeenShown = sessionStorage.getItem('splashShown');
+
+        // If the splash screen hasn't been shown, or the page is being refreshed, show it
+        if (!hasSplashBeenShown || performance.navigation.type === 1) {
+            // Show the splash screen
+            setTimeout(() => {
+                splashScreen.classList.add('wipe-out');
+                splashContent.classList.add('wipe-out');
+
+                setTimeout(() => {
+                    splashScreen.remove();
+                }, 1000); // Match the duration of the wipe-out animation
+            }, 3000); // Adjust this timeout to match the total duration of your animations
+
+            // Mark the splash screen as shown in sessionStorage
+            sessionStorage.setItem('splashShown', 'true');
+        } else {
+            // If the splash screen has already been shown, remove it immediately
+            splashScreen.remove();
+        }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icon/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icon/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/icon/favicon/site.webmanifest" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoreVibe Mini - DreamBit Tech</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/universal.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_ZW5kbGVzcy1zaHJldy0yNy5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="https://endless-shrew-27.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
+</head>
+<body>
+  <header>
+    <!-- First Section: Logo, Company Name, Moto -->
+    <div class="header-left">
+      <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+      <div class="header-text">
+        <h1>DreamBit Tech</h1>
+        <p>We Build Dreams, for Real.</p>
+      </div>
+    </div>    
+    <!-- Second Section: Theme Toggle and Navigation -->
+    <div class="header-right">
+      <button id="theme-toggle">🌙</button>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/ever/products.html" class="active">Products</a></li>
+          <li><a href="/ever/news.html">News</a></li>
+          <li><div id="user-auth"></div></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="background-animation">
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+    <main class="payment-page">
+        <section class="hero">
+            <h1 class="hero-title">Complete Your Payment</h1>
+            <p class="hero-subtitle">Secure payment via UPI</p>
+        </section>
+
+        <section class="payment-section">
+            <div class="payment-container">
+                <div class="order-details">
+                    <h3>Order Summary</h3>
+                    <div id="order-items" class="order-items">
+                        <!-- Items will be populated here -->
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>₹499</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Amount</span>
+                        <span id="payment-amount">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Order ID</span>
+                        <span id="order-id"></span>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Pay using UPI</h3>
+                    <div class="upi-container">
+                        <img src="/icons/gpay-qr.png" alt="GPay QR Code" id="qr-code">
+                        <p>Or pay using UPI ID:</p>
+                        <div class="upi-id">
+                            <span id="upi-id">your.upi@okbank</span>
+                            <button onclick="copyUpiId()" class="copy-btn">Copy</button>
+                        </div>
+                        <div class="gpay-button">
+                            <a href="#" id="gpay-link" target="_blank" class="payment-button">
+                                <img src="/icons/gpay-logo.png" alt="Google Pay">
+                                Pay with Google Pay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="floating-brand">
+        <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+        <h1>DreamBit Tech</h1>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DreamBit Tech. All rights reserved.</p>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Wait for Clerk to load
+            await Clerk.load();
+
+            // Check if user is authenticated
+            if (!Clerk.user) {
+                window.location.href = '/ever/cart.html';
+                return;
+            }
+
+            // Get cart details from cart object
+            const total = cart.getSubtotal();
+            const orderId = 'ORD' + Date.now();
+            
+            // Redirect if cart is empty
+            if (total === 0) {
+                window.location.href = '/ever/cart.html';
+                return;
+            }
+
+            // Display order items
+            const orderItemsContainer = document.getElementById('order-items');
+            orderItemsContainer.innerHTML = cart.items.map(item => `
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="${item.image}" alt="${item.name}" class="item-thumbnail">
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            <p>Quantity: ${item.quantity}</p>
+                        </div>
+                    </div>
+                    <span class="item-price">₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
+                </div>
+            `).join('');
+
+            // Update summary
+            document.getElementById('subtotal').textContent = `₹${total.toLocaleString('en-IN')}`;
+            document.getElementById('payment-amount').textContent = `₹${(total + 499).toLocaleString('en-IN')}`;
+            document.getElementById('order-id').textContent = orderId;
+
+            // Set up Google Pay deep link with shipping
+            const upiId = 'sameermann5335@okhdfcbank';
+            const paymentNote = `Payment for ${orderId}`;
+            const totalWithShipping = total + 499;
+            const gpayLink = `upi://pay?pa=${upiId}&pn=DreamBit Tech&tn=${encodeURIComponent(paymentNote)}&am=${totalWithShipping}`;
+            document.getElementById('gpay-link').href = gpayLink;
+
+            // Save order details
+            const order = {
+                id: orderId,
+                items: cart.items,
+                subtotal: total,
+                shipping: 499,
+                total: totalWithShipping,
+                date: new Date().toISOString(),
+                status: 'pending',
+                userId: Clerk.user.id
+            };
+            localStorage.setItem(`order_${orderId}`, JSON.stringify(order));
+        });
+
+        function copyUpiId() {
+            const upiId = document.getElementById('upi-id').textContent;
+            navigator.clipboard.writeText(upiId);
+            
+            const btn = document.querySelector('.copy-btn');
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        }
+    </script>
+</body>
+</html>

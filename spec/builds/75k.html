@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icon/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icon/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/icon/favicon/site.webmanifest" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamCanvas X - DreamBit Tech</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/universal.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_ZW5kbGVzcy1zaHJldy0yNy5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="https://endless-shrew-27.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
+</head>
+<body>
+  <header>
+    <!-- First Section: Logo, Company Name, Moto -->
+    <div class="header-left">
+      <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+      <div class="header-text">
+        <h1>DreamBit Tech</h1>
+        <p>We Build Dreams, for Real.</p>
+      </div>
+    </div>    
+    <!-- Second Section: Theme Toggle and Navigation -->
+    <div class="header-right">
+      <button id="theme-toggle">🌙</button>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/ever/products.html" class="active">Products</a></li>
+          <li><a href="/ever/news.html">News</a></li>
+          <li><div id="user-auth"></div></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="background-animation">
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  <div class="product-detail-container">
+    <div class="product-info">
+      <h2>DreamCanvas X</h2>
+      <img src="/part/cabinets/antespelite.jpg" alt="DreamCanvas X">
+      <p><strong>Description:</strong> Perfect for designers and artists.</p>
+      <p><strong>Price:</strong> ₹75,000</p>
+    </div>
+    <div class="specifications-container">
+      <h3>Specifications</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Name</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CPU</td>
+            <td>intel core i5-14400f</td>
+            <td><img src="/part/cpu/i514.jpg" alt="i5-14400f" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>Motherboard</td>
+            <td>MSI 760 BOMBER WIFI</td>
+            <td><img src="/part/mb/msib760b.jpg" alt="msib760b" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>GPU</td>
+            <td>INNO3D 4060</td>
+            <td><img src="/part/gpu/in3d4060.jpg" alt="INNO3D 4060" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>PSU</td>
+            <td>MSI MAG 650BN</td>
+            <td><img src="/part/psu/msimaga650bn.jpg" alt="MSI MAG A650BN" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>RAM</td>
+            <td>CRUCIAL 32gb(16*2) DDR5</td>
+            <td><img src="/part/ram/cial16blk.jpg" alt="cial16blk" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>CRUCIAL P3 Plus 1tb</td>
+            <td><img src="/part/storage/cialp3p1000.jpg" alt="cialp3p1000" class="component-image"></td>
+          </tr>
+          <tr>
+            <td>Case</td>
+            <td>ANT ESPORTS ELITE</td>
+            <td><img src="/part/cabinets/antespelite.jpg" alt="antespelite" class="component-image"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="back-button-container">
+    <a href="/spec/OPT/creator.html" class="back-button">Back to Creator Builds</a>
+    <button onclick="addPreBuiltToCart()" class="back-button">Add to Cart</button>
+    <a href="/ever/products.html" class="back-button">Back to Products</a>
+  </div>
+  <div class="floating-brand">
+    <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+    <h1>DreamBit Tech</h1>
+  </div>
+  <footer>
+    <p>&copy; 2025 DreamBit Tech. All rights reserved.</p>
+  </footer>
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+  <script>
+    function addPreBuiltToCart() {
+        const prebuiltPC = {
+            id: 'dreamcanvas-x',
+            name: 'DreamCanvas X',
+            price: 75000,
+            type: 'custom-pc',
+            description: 'CPU: i514, mb: msib760b, GPU: in3d4060, PSU: msimaga650bn, RAM: cial16blk, STORAGE: cialp3p1000, CASE: antespelite',
+            image: '/part/cabinets/antespelite.jpg'
+        };
+        
+        cart.addItem(prebuiltPC);
+    }
+  </script>
+</body>
+</html>

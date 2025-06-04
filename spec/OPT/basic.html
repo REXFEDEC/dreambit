@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/icon/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/icon/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/icon/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Builds - DreamBit Tech</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/js/universal.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <script
+        async
+        crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_ZW5kbGVzcy1zaHJldy0yNy5jbGVyay5hY2NvdW50cy5kZXYk"
+        src="https://endless-shrew-27.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+        type="text/javascript"
+    ></script>
+</head>
+<div class="background-animation">
+    <div class="orb"></div>
+    <div class="orb"></div>
+</div>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+            <div class="header-text">
+                <h1>DreamBit Tech</h1>
+                <p>We Build Dreams, for Real.</p>
+            </div>
+        </div>    
+        <div class="header-right">
+            <button id="theme-toggle">🌙</button>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/ever/products.html" class="active">Products</a></li>
+                    <li><a href="/ever/news.html">News</a></li>
+                    <li><div id="user-auth"></div></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="custom-build-container">
+        <section class="custom-build-hero">
+            <h1>Custom PC Build Request</h1>
+            <p class="hero-subtitle">Build your dream PC with hand-picked components of your choice</p>
+        </section>
+
+        <section class="custom-build-form">
+            <form id="customBuildForm">
+                <div class="form-group">
+                    <h2>Your Build Requirements</h2>
+                    
+                    <div class="input-group">
+                        <label for="buildPurpose">Primary Use</label>
+                        <select id="buildPurpose" required>
+                            <option value="">Select primary purpose</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="content">Content Creation</option>
+                            <option value="dev">Development</option>
+                            <option value="workstation">Workstation</option>
+                            <option value="other">Other (specify below)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="budget">Budget Range (₹)</label>
+                        <input type="number" id="budget" placeholder="Your maximum budget" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="timeframe">Preferred Timeframe</label>
+                        <select id="timeframe" required>
+                            <option value="">Select timeframe</option>
+                            <option value="asap">As soon as possible</option>
+                            <option value="1month">Within 1 month</option>
+                            <option value="3months">Within 3 months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="preferences">Specific Requirements</label>
+                        <textarea id="preferences" rows="6" 
+                            placeholder="Tell us about your specific needs:
+- Preferred brands
+- Must-have components
+- Color scheme
+- Cooling preferences
+- Size requirements
+- Any special features" required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="contact">Contact Number (Optional if email provided)</label>
+                        <input type="tel" id="contact" placeholder="Your phone number">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Your email address">
+                    </div>
+
+                    <button type="submit" class="submit-button" id="submitBuild">
+                        Submit Build Request
+                        <span class="button-icon">🚀</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="build-process">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3>Submit Request</h3>
+                    <p>Tell us your dream build specifications</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3>Consultation</h3>
+                    <p>Our experts will contact you to discuss details</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3>Quote</h3>
+                    <p>Receive a detailed quote and timeline</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <h3>Build & Deliver</h3>
+                    <p>We build and thoroughly test your custom PC</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-brand">
+        <img src="/icons/dbt.png" alt="DreamBit Tech Logo" class="logo">
+        <h1>DreamBit Tech</h1>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DreamBit Tech. All rights reserved.</p>
+    </footer>
+    <button class="scroll-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const customBuildForm = document.getElementById('customBuildForm');
+        const contactInput = document.getElementById('contact');
+        const emailInput = document.getElementById('email');
+
+        // Form validation
+        function validateForm() {
+            // Check if at least one contact method is provided
+            if (!contactInput.value && !emailInput.value) {
+                alert('Please provide either a phone number or email address');
+                return false;
+            }
+
+            // Validate phone number if provided
+            if (contactInput.value && !/^[\d\s-+()]{10,}$/.test(contactInput.value)) {
+                alert('Please enter a valid phone number');
+                return false;
+            }
+
+            // Validate email if provided
+            if (emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Handle form submission
+        customBuildForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!validateForm()) return;
+
+            // Get form data
+            const formData = {
+                buildPurpose: document.getElementById('buildPurpose').value,
+                budget: document.getElementById('budget').value,
+                timeframe: document.getElementById('timeframe').value,
+                preferences: document.getElementById('preferences').value,
+                contact: contactInput.value,
+                email: emailInput.value
+            };
+
+            try {
+                const submitButton = document.getElementById('submitBuild');
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Sending... <span class="button-icon">⏳</span>';
+
+                // Add haptic feedback
+                triggerHaptic('medium');
+
+                // Construct email body
+                const emailBody = `
+New Custom Build Request:
+
+Primary Use: ${formData.buildPurpose}
+Budget: ₹${formData.budget}
+Timeframe: ${formData.timeframe}
+
+Specific Requirements:
+${formData.preferences}
+
+Contact Details:
+Phone: ${formData.contact || 'Not provided'}
+Email: ${formData.email || 'Not provided'}`;
+
+                // Create mailto link
+                const mailtoLink = `mailto:sameermann2004@gmail.com?subject=Ultimate Custom Build Request&body=${encodeURIComponent(emailBody)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Show success message
+                submitButton.innerHTML = 'Sent Successfully! <span class="button-icon">✅</span>';
+                triggerHaptic('success');
+
+                // Reset form after delay
+                setTimeout(() => {
+                    customBuildForm.reset();
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit Build Request <span class="button-icon">🚀</span>';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Error:', error);
+                triggerHaptic('error');
+                alert('There was an error submitting your request. Please try again.');
+            }
+        });
+
+        // Add real-time validation
+        [contactInput, emailInput].forEach(input => {
+            input?.addEventListener('input', () => {
+                const isValid = contactInput.value || emailInput.value;
+                document.getElementById('submitBuild').disabled = !isValid;
+            });
+        });
+
+        // Add haptic feedback to form interactions
+        document.querySelectorAll('select, input, textarea').forEach(element => {
+            element.addEventListener('change', () => triggerHaptic('select'));
+        });
+    });
+    </script>
+</body>
+</html>
